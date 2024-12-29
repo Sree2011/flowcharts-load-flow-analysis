@@ -19,16 +19,14 @@ include:
   - ISSUE_TEMPLATE.md
   - PULL_REQUEST_TEMPLATE.md
 
-remote_theme: pages-themes/architect
+remote_theme: pages-themes/primer
 markdown: kramdown
 kramdown:
   input: GFM
   auto_ids: true
 
 
-mermaid:
-  enable: true
-  version: 11.4.1
+
 
 mathjax:
   enable: true
