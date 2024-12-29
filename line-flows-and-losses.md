@@ -1,3 +1,7 @@
+---
+layout: default
+mermaid: true
+---
 ```mermaid
 graph TB
 subgraph "main()"
