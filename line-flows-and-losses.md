@@ -1,7 +1,8 @@
----
-layout: default
-mermaid: true
----
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/+esm"></script>
+<script>
+    mermaid.initialize({ startOnLoad: true });
+</script>
+
 ```mermaid
 graph TB
 subgraph "main()"
