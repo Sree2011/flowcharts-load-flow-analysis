@@ -8,39 +8,7 @@
 
 <pre class="mermaid">
 graph LR
-    subgraph main["main()"]
-        direction TB
-        A([Start]) --> B[\Display 
-        'Enter the number of buses'\]
-        B --> B1[/Input n/]
-        B1 --> C[[Initialize Ybus 
-        matrix with 0+0j]]
-        C --> D[[Initialize y 
-        matrix with 0+0j]]
-        D --> E[\Display 
-        'Enter 1 for impedance 
-        and 2 for admittance'\]
-        E --> E1[/Input choice/]
-        E1 --> F{Choice}
-        F -- 1 --> G[["Call 
-        get_input(choice, n) 
-        to get admittance matrix 
-        from impedances"]]
-        F -- 2 --> H[["Call 
-        get_input(choice, n) 
-        to get admittance matrix 
-        from admittances"]]
-        F -- Else --> AB[\Display 
-        'Invalid Input'\]
-        G --> I[["Call 
-        calculate_matrix(y, n)"]]
-        H --> I
-        I --> J[["Call 
-        display_matrix(Ybus)"]]
-        J --> K([End])
-        AB --> K
-    end
-    subgraph "get_input(choice,n)"
+        subgraph "get_input(choice,n)"
         direction TB
         V([Start]) --> K2{Choice}
         K2 -- 1 --> L1{For each bus i}
@@ -84,6 +52,40 @@ graph LR
         Z2 --> Y1
         Y1 --> W2([Return Ybus to main])
     end
+    
+    subgraph main["main()"]
+        direction TB
+        A([Start]) --> B[\Display 
+        'Enter the number of buses'\]
+        B --> B1[/Input n/]
+        B1 --> C[[Initialize Ybus 
+        matrix with 0+0j]]
+        C --> D[[Initialize y 
+        matrix with 0+0j]]
+        D --> E[\Display 
+        'Enter 1 for impedance 
+        and 2 for admittance'\]
+        E --> E1[/Input choice/]
+        E1 --> F{Choice}
+        F -- 1 --> G[["Call 
+        get_input(choice, n) 
+        to get admittance matrix 
+        from impedances"]]
+        F -- 2 --> H[["Call 
+        get_input(choice, n) 
+        to get admittance matrix 
+        from admittances"]]
+        F -- Else --> AB[\Display 
+        'Invalid Input'\]
+        G --> I[["Call 
+        calculate_matrix(y, n)"]]
+        H --> I
+        I --> J[["Call 
+        display_matrix(Ybus)"]]
+        J --> K([End])
+        AB --> K
+    end
+
    
 
    classDef input fill:#98F5F9,stroke:#333,stroke-width:2px,text-align:center;
