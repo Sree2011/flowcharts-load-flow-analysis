@@ -8,7 +8,33 @@
 
 <pre class="mermaid">
 graph LR
-        subgraph "get_input(choice,n)"
+    subgraph "display_matrix(ybus,n)"
+        direction TB
+        X([Start]) --> X1[\Print 
+        Bus Admittance Matrix\]
+        X1 --> Y1{For each row in Ybus}
+        Y1 --> Z1{For each element in row}
+        Z1 --> AA1[\Print each element\]
+        AA1 --> AB1[\Print new line\]
+        Z1 --> Z2[[Next Iteration]]
+        Z2 --> Y1
+        Y1 --> W2([Return Ybus to main])
+    end
+    
+    subgraph "calculate_matrix(y,n)"
+        direction TB
+        R([Start]) --> R1{For each bus i and j}
+        R1 --> S1{i == j}
+        S1 -- Yes --> T1[[Calculate 
+        diagonal elements]]
+        S1 -- No --> V1[[Calculate 
+        off-diagonal elements]]
+        V1 --> U1[[Next Iteration]]
+        U1 --> R1
+        U1 --> W1([Return Ybus to main])
+    end
+
+    subgraph "get_input(choice,n)"
         direction TB
         V([Start]) --> K2{Choice}
         K2 -- 1 --> L1{For each bus i}
@@ -26,33 +52,6 @@ graph LR
         P2 --> O1
         P2 --> Q1
     end
-
-    subgraph "calculate_matrix(y,n)"
-        direction TB
-        R([Start]) --> R1{For each bus i and j}
-        R1 --> S1{i == j}
-        S1 -- Yes --> T1[[Calculate 
-        diagonal elements]]
-        S1 -- No --> V1[[Calculate 
-        off-diagonal elements]]
-        V1 --> U1[[Next Iteration]]
-        U1 --> R1
-        U1 --> W1([Return Ybus to main])
-    end
-
-    subgraph "display_matrix(ybus,n)"
-        direction TB
-        X([Start]) --> X1[\Print 
-        Bus Admittance Matrix\]
-        X1 --> Y1{For each row in Ybus}
-        Y1 --> Z1{For each element in row}
-        Z1 --> AA1[\Print each element\]
-        AA1 --> AB1[\Print new line\]
-        Z1 --> Z2[[Next Iteration]]
-        Z2 --> Y1
-        Y1 --> W2([Return Ybus to main])
-    end
-    
     subgraph main["main()"]
         direction TB
         A([Start]) --> B[\Display 
