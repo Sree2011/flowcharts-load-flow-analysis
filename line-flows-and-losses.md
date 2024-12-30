@@ -1,8 +1,4 @@
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/+esm"></script>
-<script>
-    mermaid.initialize({ startOnLoad: true });
-</script>
-
+# Line flows and losses
 ```mermaid
 graph TB
 subgraph "main()"
