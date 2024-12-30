@@ -13,17 +13,24 @@
 graph TB
 subgraph "main()"
     direction TB
-    A1([Start]) --> B1(Display 
-    **Enter the no.of buses**)
+    A1([Start]) --> B1[\Display 
+    **Enter the no.of buses**\]
     B1 --> C1[/Input n/]
-    C1 --> D1[["`Initialise matrices V,I,y 
-    with dimensions (n,n)`"]]
-    D1 --> E1[\"Display **Enter 1 for impedance and 2 for admittance**"\]
-    E1 --> G1[["Call **get_input(n,V,I,y)**"]]
-    G1 --> H1[/"store the result into V,I and y"/]
-    H1 --> I1[["Call **calculate_line_flow_loss(n,V,I,y)**"]]
-    I1 --> J1[/"store the result into S and SL"/]
-    J1 --> K1[["Call **display_output(n,V,I,S,SL)**"]]
+    C1 --> D1[["Initialise matrices V,I,y 
+    with dimensions (n,n)"]]
+    D1 --> E1[\Display
+    **Enter 1 for impedance 
+    and 2 for admittance**\]
+    E1 --> G1[["Call 
+    **get_input(n,V,I,y)**"]]
+    G1 --> H1[/"store the result 
+    into V,I and y"/]
+    H1 --> I1[["Call 
+    **calculate_line_flow_loss(n,V,I,y)**"]]
+    I1 --> J1[/"store the result
+    into S and SL"/]
+    J1 --> K1[["Call 
+    **display_output(n,V,I,S,SL)**"]]
     K1 --> M1([End])
 end
 
