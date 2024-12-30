@@ -26,7 +26,8 @@ subgraph "main()"
     G1 --> H1[/"store the result 
     into V,I and y"/]
     H1 --> I1[["Call 
-    **calculate_line_flow_loss(n,V,I,y)**"]]
+    **calculate_line_flow_
+    loss(n,V,I,y)**"]]
     I1 --> J1[/"store the result
     into S and SL"/]
     J1 --> K1[["Call 
@@ -37,28 +38,41 @@ end
 subgraph "get_input(n,V,I,y)"
     direction TB
     A2([Start]) --> B2[for i from 0 to n-1]@{shape: hex}
-    B2 --> C2[\"`Display Enter voltage at bus i`"\]
-    C2 --> D2[/"`Input V[i,i]`"/]
-    D2 --> E2[\"`Display **Enter current at bus i**`"\]
-    E2 --> F2[/"Input I[i,i]"/]
-    F2 --> G2["` Display Enter 1 for impedance and 2 for admittance`"]
+    B2 --> C2[\"Display 
+    **Enter voltage at bus i**"\]
+    C2 --> D2[/"`Input 
+    V[i,i]`"/]
+    D2 --> E2[\"Display 
+    **Enter current at bus i**"\]
+    E2 --> F2[/"Input 
+    I[i,i]"/]
+    F2 --> G2[" Display 
+    **Enter 1 for impedance 
+    and 2 for admittance**"]
     G2 --> H2[/Input choice/]
     H2 --> I2[choice]@{shape: diam}
     I2 --> |1| I3[for i from 0 to n-1]@{shape: hex}
     I3 --> I4[for j from 0 to n-1]@{shape: hex}
-    I4 --> I5["`Display **Enter impedance between bus i+1 and j+1**`"]@{shape: lean-left}
+    I4 --> I5["Display 
+    **Enter impedance between 
+    bus i+1 and j+1**"]@{shape: lean-left}
     I5 --> I6[/Input yij/]
-    I6 --> I7["`Assign reciprocal of yij to y[i,j]`"]
+    I6 --> I7["Assign reciprocal of 
+    yij to y[i,j]"]
     I7 --> I8[Next iteration]
     I8 --> I3
     I2 --> |2| I9[for i from 0 to n-1]@{shape: hex}
     I9 --> I10[for j from 0 to n-1]@{shape: hex}
-    I10 --> I11[\"`Display **Enter admittance between bus i+1 and j+1**`"\]
-    I11 --> I12[/"`Input y[i,j]`"/]
+    I10 --> I11[\"Display 
+    **Enter admittance between 
+    bus i+1 and j+1**"\]
+    I11 --> I12[/"`Input 
+    y[i,j]`"/]
     I12 --> I13[Next iteration]
     I13 --> I9
 
-    I8 --> I14["`Return V,I,y`"]@{shape: stadium}
+    I8 --> I14[Return 
+    V,I,y]@{shape: stadium}
     I13 --> I14
 end
 </pre>
