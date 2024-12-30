@@ -1,8 +1,10 @@
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/+esm"></script>
-<script>
-    mermaid.initialize({ startOnLoad: true });
+<script type="module">
+	import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+	mermaid.initialize({
+		startOnLoad: true,
+		theme: 'dark'
+	});
 </script>
-
 
 # Line flows and losses
 
@@ -49,8 +51,5 @@ subgraph "get_input(n,V,I,y)"
 
     I8 --> I14["`Return V,I,y`"]@{shape: stadium}
     I13 --> I14
-end
-
-subgraph "calculate_lineflow_loss(n,V,I,y)"
 end
 </pre>
