@@ -8,34 +8,8 @@
 
 <pre class="mermaid">
 graph TB
-    subgraph "display_matrix(ybus,n)"
-        direction LR
-        X([Start]) --> X1[\Print 
-        Bus Admittance Matrix\]
-        X1 --> Y1{For each row in Ybus}
-        Y1 --> Z1{For each element in row}
-        Z1 --> AA1[\Print each element\]
-        AA1 --> AB1[\Print new line\]
-        Z1 --> Z2[[Next Iteration]]
-        Z2 --> Y1
-        Y1 --> W2([Return Ybus to main])
-    end
-    
-    subgraph "calculate_matrix(y,n)"
-        direction LR
-        R([Start]) --> R1{For each bus i and j}
-        R1 --> S1{i == j}
-        S1 -- Yes --> T1[[Calculate 
-        diagonal elements]]
-        S1 -- No --> V1[[Calculate 
-        off-diagonal elements]]
-        V1 --> U1[[Next Iteration]]
-        U1 --> R1
-        U1 --> W1([Return Ybus to main])
-    end
-
     subgraph "get_input(choice,n)"
-        direction LR
+        direction TB
         V([Start]) --> K2{Choice}
         K2 -- 1 --> L1{For each bus i}
         L1 --> L2{For each bus j}
@@ -53,7 +27,7 @@ graph TB
         P2 --> Q1
     end
     subgraph main["main()"]
-        direction LR
+        direction TB
         A([Start]) --> B[\Display 
         'Enter the number of buses'\]
         B --> B1[/Input n/]
@@ -84,21 +58,33 @@ graph TB
         J --> K([End])
         AB --> K
     end
+</pre>
 
-   
-
-   classDef input fill:#98F5F9,stroke:#333,stroke-width:2px,text-align:center;
-   classDef process fill:#7DDA58,stroke:#333,stroke-width:2px,text-align:center;
-   classDef output fill:#FE9900,stroke:#333,stroke-width:2px,text-align:center;
-   classDef loop fill:#AD840E,stroke:#333,stroke-width:2px,text-align:center;
-   classDef decision fill:#BFD641,stroke:#333,stroke-width:2px,text-align:center;
-   classDef startEnd fill:#BA62D1,stroke:#333,stroke-width:2px,text-align:center;
-
-
-   class B1,E1,M1,P1,M3,P2 input
-   class C,D,G,H,I,J,M2,T1,V1,U1,Z2 process
-   class B,E,AB,X1,Z1,AA1,AB1 output
-   class F,K2,S1 decision
-   class A,K,V,Q1,W1,W2,R,X,Z3 startEnd
-   class L1,L2,O1,O2,R1,Y1,Z1 loop
+<pre class="mermaid">
+graph TB
+    subgraph "display_matrix(ybus,n)"
+        direction TB
+        X([Start]) --> X1[\Print 
+        Bus Admittance Matrix\]
+        X1 --> Y1{For each row in Ybus}
+        Y1 --> Z1{For each element in row}
+        Z1 --> AA1[\Print each element\]
+        AA1 --> AB1[\Print new line\]
+        Z1 --> Z2[[Next Iteration]]
+        Z2 --> Y1
+        Y1 --> W2([Return Ybus to main])
+    end
+    
+    subgraph "calculate_matrix(y,n)"
+        direction TB
+        R([Start]) --> R1{For each bus i and j}
+        R1 --> S1{i == j}
+        S1 -- Yes --> T1[[Calculate 
+        diagonal elements]]
+        S1 -- No --> V1[[Calculate 
+        off-diagonal elements]]
+        V1 --> U1[[Next Iteration]]
+        U1 --> R1
+        U1 --> W1([Return Ybus to main])
+    end
 </pre>
