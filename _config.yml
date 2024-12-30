@@ -25,10 +25,8 @@ kramdown:
   input: GFM
   auto_ids: true
 
-mermaid:
-  enable: true
+mermaid: true
 
-usemermaid: true
 mathjax:
   enable: true
 
