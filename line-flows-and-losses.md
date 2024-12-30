@@ -75,8 +75,5 @@ subgraph "get_input(n,V,I,y)"
     V,I,y]@{shape: stadium}
     I13 --> I14
 end
-
-subgraph calculate_lineflow_loss(n,V,I,y)
-
-end
 </pre>
+
