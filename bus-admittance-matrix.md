@@ -7,7 +7,7 @@
 </script>
 
 <pre class="mermaid">
-graph TD
+graph LR
     subgraph main["main()"]
         direction TB
         A([Start]) --> B[\Display 
