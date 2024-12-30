@@ -44,7 +44,7 @@ subgraph "get_input(n,V,I,y)"
     V[i,i]`"/]
     D2 --> E2[\"Display 
     **Enter current at bus i**"\]
-    E2 --> F2[/"Input 
+    E2 --> F2[/"Input
     I[i,i]"/]
     F2 --> G2[" Display 
     **Enter 1 for impedance 
@@ -55,7 +55,7 @@ subgraph "get_input(n,V,I,y)"
     I3 --> I4[for j from 0 to n-1]@{shape: hex}
     I4 --> I5["Display 
     **Enter impedance between 
-    bus i+1 and j+1**"]@{shape: lean-left}
+    bus i and j**"]@{shape: lean-left}
     I5 --> I6[/Input yij/]
     I6 --> I7["Assign reciprocal of 
     yij to y[i,j]"]
@@ -65,7 +65,7 @@ subgraph "get_input(n,V,I,y)"
     I9 --> I10[for j from 0 to n-1]@{shape: hex}
     I10 --> I11[\"Display 
     **Enter admittance between 
-    bus i+1 and j+1**"\]
+    bus i and j**"\]
     I11 --> I12[/"`Input 
     y[i,j]`"/]
     I12 --> I13[Next iteration]
@@ -74,5 +74,9 @@ subgraph "get_input(n,V,I,y)"
     I8 --> I14[Return 
     V,I,y]@{shape: stadium}
     I13 --> I14
+end
+
+subgraph calculate_lineflow_loss(n,V,I,y)
+
 end
 </pre>
