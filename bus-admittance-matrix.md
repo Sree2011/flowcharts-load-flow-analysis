@@ -10,7 +10,7 @@
 
 <pre class="mermaid">
 graph TB
-    subgraph "**get_input(choice,n)**"
+    subgraph "get_input(choice,n)"
         direction TB
         V([Start]) --> K2{Choice}
         K2 -- 1 --> L1{For each bus i}
