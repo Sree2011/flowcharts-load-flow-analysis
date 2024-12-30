@@ -7,9 +7,9 @@
 </script>
 
 <pre class="mermaid">
-graph LR
+graph TB
     subgraph "display_matrix(ybus,n)"
-        direction TB
+        direction LR
         X([Start]) --> X1[\Print 
         Bus Admittance Matrix\]
         X1 --> Y1{For each row in Ybus}
@@ -22,7 +22,7 @@ graph LR
     end
     
     subgraph "calculate_matrix(y,n)"
-        direction TB
+        direction LR
         R([Start]) --> R1{For each bus i and j}
         R1 --> S1{i == j}
         S1 -- Yes --> T1[[Calculate 
@@ -35,7 +35,7 @@ graph LR
     end
 
     subgraph "get_input(choice,n)"
-        direction TB
+        direction LR
         V([Start]) --> K2{Choice}
         K2 -- 1 --> L1{For each bus i}
         L1 --> L2{For each bus j}
@@ -53,7 +53,7 @@ graph LR
         P2 --> Q1
     end
     subgraph main["main()"]
-        direction TB
+        direction LR
         A([Start]) --> B[\Display 
         'Enter the number of buses'\]
         B --> B1[/Input n/]
