@@ -7,9 +7,10 @@
 </script>
 
 # Line flows and losses
-<pre>
+<pre class="mermaid">
 graph TD
     subgraph "Main Program"
+        direction LR
         A[Start]
         A --> B[DISPLAY "Enter the number of buses"]
         B --> C[INPUT n]
@@ -23,6 +24,7 @@ graph TD
     end
 
     subgraph "Get Input"
+        direction LR
         K[Start]
         K --> L[FOR i from 0 to n-1]
         L --> M[DISPLAY "enter the voltage at bus (i+1)"]
@@ -52,7 +54,7 @@ graph TD
     end
 </pre>
 
-<pre>
+<pre class="mermaid">
 graph TB
     subgraph Calculate Line Flows and Line Losses
         KK[Start]
