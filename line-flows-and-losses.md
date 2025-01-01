@@ -19,7 +19,7 @@ subgraph "get_input(n,V,I,y)"
     **Enter voltage at bus i**"\]
     C2 --> D2[/"`Input 
     V[i,i]`"/]
-    D2 --> E2[\"Display 
+    D2 --> E2[\"Display
     **Enter current at bus i**"\]
     E2 --> F2[/"Input
     I[i,i]"/]
@@ -78,3 +78,45 @@ subgraph "main()"
 end
 </pre>
 
+<pre>
+graph "calculate_lineflow_loss(n,V,I,y)"
+    subgraph Initialisation
+        A[Initialise Matrices S, SL with dimensions (n,n)]
+    end
+
+    subgraph Voltage Calculation
+        B[FOR i from 0 to n-1]
+        B --> C[FOR j from 0 to n-1]
+        C --> D[IF i is not equal to j]
+        D --> E[V[i, j] = V[i, i] - V[j, j]]
+        E --> F[V[j, i] = V[j, j] - V[i, i]]
+    end
+    F --> G[End Voltage Calculation]
+
+    subgraph Current Calculation
+        H[FOR i from 0 to n-1]
+        H --> I[FOR j from 0 to n-1]
+        I --> J[IF i is not equal to j]
+        J --> K[I[i, j] = y[i, j] * (V[i, i] - V[j, j])]
+        K --> L[I[j, i] = y[j, i] * (V[j, j] - V[i, i])]
+    end
+    L --> M[End Current Calculation]
+
+    subgraph Power Calculation
+        N[FOR i from 0 to n-1]
+        N --> O[FOR j from 0 to n-1]
+        O --> P[S[i, j] = V[i, j] * Conjugate(I[i, j])]
+        P --> Q[S[j, i] = V[j, i] * Conjugate(I[j, i])]
+        Q --> R[SL[i, j] = S[i, j] + S[j, i]]
+    end
+    R --> S[End Power Calculation]
+
+    S --> T[Return S, SL]
+    T --> U[End]
+
+    style Initialisation fill:#f96,stroke:#333,stroke-width:2px;
+    style Voltage Calculation fill:#f9f,stroke:#333,stroke-width:2px;
+    style Current Calculation fill:#6f6,stroke:#333,stroke-width:2px;
+    style Power Calculation fill:#36f,stroke:#333,stroke-width:2px;
+end
+</pre>
