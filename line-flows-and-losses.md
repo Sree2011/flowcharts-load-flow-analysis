@@ -11,32 +11,41 @@
 graph LR
     subgraph "Get Input"
         direction TB
-        K[Start]:::bigFontSize
-        K --> L[FOR i from 0 to n-1]:::bigFontSize
-        L --> M["DISPLAY enter the voltage at bus (i+1)"]:::bigFontSize
-        M --> N["INPUT V[i, i]"]:::bigFontSize
-        N --> O["DISPLAY enter the current at bus (i+1)"]:::bigFontSize
-        O --> P["INPUT I[i, i]"]:::bigFontSize
-        P --> Q[End FOR]:::bigFontSize
-        Q --> R["DISPLAY Enter 1 for impedance and 2 for admittance"]:::bigFontSize
-        R --> S[INPUT choice]:::bigFontSize
-        S --> |choice == 1| T[FOR i from 0 to n-1]:::bigFontSize
-        T --> U[FOR j from 0 to n-1]:::bigFontSize
-        U --> V["DISPLAY enter the impedance between bus (i+1) and (j+1)"]:::bigFontSize
-        V --> W[INPUT yij]:::bigFontSize
-        W --> X["y[i, j] = 1 / yij"]:::bigFontSize
-        X --> Y[End FOR]:::bigFontSize
-        Y --> Z[End FOR]:::bigFontSize
-        Z --> AA[End IF]:::bigFontSize
-        S --> |choice == 2| BB[FOR i from 0 to n-1]:::bigFontSize
-        BB --> CC[FOR j from 0 to n-1]:::bigFontSize
-        CC --> DD["DISPLAY enter the admittance between bus (i+1) and (j+1)"]:::bigFontSize
-        DD --> EE["INPUT y[i, j]"]:::bigFontSize
-        EE --> FF[End FOR]:::bigFontSize
-        FF --> GG[End FOR]:::bigFontSize
-        GG --> HH[End IF]:::bigFontSize
-        HH --> II[RETURN V,I,y]:::bigFontSize
-        II --> JJ[End]:::bigFontSize
+        K[Start]
+        K --> L[FOR i from 0 to n-1]@{shape: hex}
+        L --> M["DISPLAY enter the 
+        voltage at bus (i+1)"]@{shape: lean-left}
+        M --> N["INPUT V[i, i]"]@{shape: lean-right}
+        N --> O["DISPLAY enter the 
+        current at bus (i+1)"]@{shape: lean-left}
+        O --> P["INPUT I[i, i]"]@{shape: lean-right}
+        P --> Q[End FOR]@{shape: hex}
+        Q --> L
+        Q --> R["DISPLAY Enter 1 for impedance 
+        and 2 for admittance"]@{shape: lean-left}
+        R --> S[INPUT choice]@{shape: lean-right}
+        S --> S1[Choice]@{shape: diam}
+        S1 --> |1| T[FOR i from 0 to n-1]@{shape: hex}
+        T --> U[FOR j from 0 to n-1]@{shape: hex}
+        U --> V["DISPLAY enter the impedance between bus (i+1) and (j+1)"]@{shape: lean-left}
+        V --> W[INPUT yij]@{shape: lean-right}
+        W --> X[["y[i, j] = 1 / yij"]]
+        X --> Y[End FOR]@{shape: hex}
+        Y --> U
+        Y --> Z[End FOR]@{shape: hex}
+        Z --> T
+        S1 --> |2| BB[FOR i from 0 to n-1]@{shape: hex}
+        BB --> CC[FOR j from 0 to n-1]@{shape: hex}
+        CC --> DD["DISPLAY enter the admittance 
+        between bus (i+1) and (j+1)"]@{shape: lean-left}
+        DD --> EE["INPUT y[i, j]"]@{shape: lean-right}
+        EE --> FF[End FOR]@{shape: hex}
+        FF --> CC
+        FF --> GG[End FOR]@{shape: hex}
+        GG --> BB
+        GG --> II[RETURN V,I,y]
+        Z --> II
+        II --> JJ[End]
     end
 </pre>
 
@@ -44,45 +53,22 @@ graph LR
 graph LR
     subgraph "Main Program"
         direction TB
-        A[Start]:::bigFontSize
-        A --> B["DISPLAY Enter the number of buses"]:::bigFontSize
-        B --> C[INPUT n]:::bigFontSize
-        C --> D["INITIALISE matrices V, I, y with dimensions (n, n)"]:::bigFontSize
-        D --> E["DISPLAY Enter 1 for impedance and 2 for admittance"]:::bigFontSize
-        E --> F[INPUT choice]:::bigFontSize
-        F --> G["CALL get_input(n,V,I,y) and store the result into V,I,y"]:::bigFontSize
-        G --> H["CALL calculate_line_flow_loss(n,V,I,y) and store the result into S and SL"]:::bigFontSize
-        H --> I["CALL display_output(n,V,I,S,SL)"]:::bigFontSize
-        I --> J[End]:::bigFontSize
+        A[Start]
+        A --> B["DISPLAY Enter the number of buses"]
+        B --> C[INPUT n]
+        C --> D["INITIALISE matrices V, I, y with dimensions (n, n)"]
+        D --> E["DISPLAY Enter 1 for impedance and 2 for admittance"]
+        E --> F[INPUT choice]
+        F --> G["CALL get_input(n,V,I,y) and store the result into V,I,y"]
+        G --> H["CALL calculate_line_flow_loss(n,V,I,y) and store the result into S and SL"]
+        H --> I["CALL display_output(n,V,I,S,SL)"]
+        I --> J[End]
     end
 </pre>
 
 <pre class="mermaid">
 graph LR
-    subgraph Display Line Flows and Line Losses
-        direction TB
-        LLL[Start]
-        LLL --> MMM[CREATE LIST data]
-        MMM --> NNN[FOR i from 0 to n-1]
-        NNN --> OOO[FOR j from 0 to n-1]
-        OOO --> PPP["ADD Bus Pair (i+1)-(j+1), Voltage V[i, j], Current I[i, j], Line Flow S[i, j], Line Loss SL[i, j] TO data"]
-        PPP --> QQQ[End FOR]
-        QQQ --> RRR[End FOR]
-        RRR --> SSS["DECLARE headers = ['Bus Pair', 'Voltage', 'Current', 'Line Flow', 'Line Loss']"]
-        SSS --> TTT[FOR i in headers]
-        TTT --> UUU[DISPLAY i, end with space]
-        UUU --> VVV[End FOR]
-        VVV --> WWW[DISPLAY newline]
-        WWW --> XXX[FOR i in data]
-        XXX --> YYY[DISPLAY i]
-        YYY --> ZZZ[End FOR]
-        ZZZ --> AAAA[End]
-    end
-</pre>
-
-<pre class="mermaid">
-graph LR
-    subgraph Calculate Line Flows and Line Losses
+    subgraph "Calculate Line Flows and Line Losses"
         direction TB
         KK[Start]
         KK --> LL["INITIALISE MATRICES S,SL with dimensions (n,n)"]
@@ -116,7 +102,7 @@ graph LR
 
 <pre class="mermaid">
 graph LR
-    subgraph Display Line Flows and Line Losses
+    subgraph Display Line Flows and Losses
         direction TB
         LLL[Start]
         LLL --> MMM[CREATE LIST data]
