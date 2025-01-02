@@ -84,7 +84,8 @@ graph LR
     subgraph "Calculate Line Flows and Line Losses"
         direction TB
         KK([Start])
-        KK --> LL[["INITIALISE MATRICES S,SL with dimensions (n,n)"]]
+        KK --> LL[["INITIALISE MATRICES S,SL 
+        with dimensions (n,n)"]]
         LL --> MM[FOR i from 0 to n-1]@{shape: hex}
         MM --> NN[FOR j from 0 to n-1]@{shape: hex}
         NN --> OO[i is not equal to j]@{shape: diam}
@@ -97,17 +98,22 @@ graph LR
         TT --> UU[FOR i from 0 to n-1]@{shape: hex}
         UU --> VV[FOR j from 0 to n-1]@{shape: hex}
         VV --> WW[IF i is not equal to j]@{shape: diam}
-        WW --> XX["I[i, j] = y[i, j] * (V[i, i] - V[j, j])"]
-        XX --> YY["I[j, i] = y[j, i] * (V[j, j] - V[i, i])"]
+        WW --> XX["I[i, j] = y[i, j] *
+        (V[i, i] - V[j, j])"]
+        XX --> YY["I[j, i] = y[j, i] *
+        (V[j, j] - V[i, i])"]
         YY --> AAA[End FOR]@{shape: hex}
         AAA --> VV
         AAA --> BBB[End FOR]@{shape: hex}
         BBB --> UU
         BBB --> CCC[FOR i from 0 to n-1]@{shape: hex}
         CCC --> DDD[FOR j from 0 to n-1]@{shape: hex}
-        DDD --> EEE[["S[i, j] = V[i, j] * Conjugate(I[i, j])"]]
-        EEE --> FFF[["S[j, i] = V[j, i] * Conjugate(I[j, i])"]]
-        FFF --> GGG[["SL[i, j] = S[i, j] + S[j, i]"]]
+        DDD --> EEE[["S[i, j] = V[i, j] *
+        Conjugate(I[i, j])"]]
+        EEE --> FFF[["S[j, i] = V[j, i] *
+        Conjugate(I[j, i])"]]
+        FFF --> GGG[["SL[i, j] = 
+        S[i, j] + S[j, i]"]]
         GGG --> HHH[End FOR]@{shape: hex}
         HHH --> DDD
         HHH --> III[End FOR]@{shape: hex}
