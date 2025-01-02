@@ -9,50 +9,50 @@
 # Line flows and losses
 <pre class="mermaid">
 graph LR
+    classDef bigFontSize fill:#f9f,stroke:#333,stroke-width:4px,font-size:20px;
+    
     subgraph "Get Input"
         direction LR
-        K[Start]
-        K --> L[FOR i from 0 to n-1]
-        L --> M["DISPLAY enter the voltage at bus (i+1)"]
-        M --> N["INPUT V[i, i]"]
-        N --> O["DISPLAY enter the current at bus (i+1)"]
-        O --> P["INPUT I[i, i]"]
-        P --> Q[End FOR]
-        Q --> R["DISPLAY Enter 1 for impedance and 2 for admittance"]
-        R --> S[INPUT choice]
-        S --> |choice == 1| T[FOR i from 0 to n-1]
-        T --> U[FOR j from 0 to n-1]
-        U --> V["DISPLAY enter the impedance between bus (i+1) and (j+1)"]
-        V --> W[INPUT yij]
-        W --> X["y[i, j] = 1 / yij"]
-        X --> Y[End FOR]
-        Y --> Z[End FOR]
-        Z --> AA[End IF]
-        S --> |choice == 2| BB[FOR i from 0 to n-1]
-        BB --> CC[FOR j from 0 to n-1]
-        CC --> DD["DISPLAY enter the admittance between bus (i+1) and (j+1)"]
-        DD --> EE["INPUT y[i, j]"]
-        EE --> FF[End FOR]
-        FF --> GG[End FOR]
-        GG --> HH[End IF]
-        HH --> II[RETURN V,I,y]
-        II --> JJ[End]
+        K[Start]:::bigFontSize
+        K --> L[FOR i from 0 to n-1]:::bigFontSize
+        L --> M["DISPLAY enter the voltage at bus (i+1)"]:::bigFontSize
+        M --> N["INPUT V[i, i]"]:::bigFontSize
+        N --> O["DISPLAY enter the current at bus (i+1)"]:::bigFontSize
+        O --> P["INPUT I[i, i]"]:::bigFontSize
+        P --> Q[End FOR]:::bigFontSize
+        Q --> R["DISPLAY Enter 1 for impedance and 2 for admittance"]:::bigFontSize
+        R --> S[INPUT choice]:::bigFontSize
+        S --> |choice == 1| T[FOR i from 0 to n-1]:::bigFontSize
+        T --> U[FOR j from 0 to n-1]:::bigFontSize
+        U --> V["DISPLAY enter the impedance between bus (i+1) and (j+1)"]:::bigFontSize
+        V --> W[INPUT yij]:::bigFontSize
+        W --> X["y[i, j] = 1 / yij"]:::bigFontSize
+        X --> Y[End FOR]:::bigFontSize
+        Y --> Z[End FOR]:::bigFontSize
+        Z --> AA[End IF]:::bigFontSize
+        S --> |choice == 2| BB[FOR i from 0 to n-1]:::bigFontSize
+        BB --> CC[FOR j from 0 to n-1]:::bigFontSize
+        CC --> DD["DISPLAY enter the admittance between bus (i+1) and (j+1)"]:::bigFontSize
+        DD --> EE["INPUT y[i, j]"]:::bigFontSize
+        EE --> FF[End FOR]:::bigFontSize
+        FF --> GG[End FOR]:::bigFontSize
+        GG --> HH[End IF]:::bigFontSize
+        HH --> II[RETURN V,I,y]:::bigFontSize
+        II --> JJ[End]:::bigFontSize
     end
 
     subgraph "Main Program"
         direction LR
-        A[Start]
-        A --> B["DISPLAY Enter the number of buses"]
-        B --> C[INPUT n]
-        C --> D["INITIALISE matrices V, I, y with dimensions (n, n)"]
-        D --> E["DISPLAY Enter 1 for impedance 
-        and 2 for admittance"]
-        E --> F[INPUT choice]
-        F --> G["CALL get_input(n,V,I,y) 
-        and store the result into V,I,y"]
-        G --> H["CALL calculate_line_flow_loss(n,V,I,y) and store the result into S and SL"]
-        H --> I["CALL display_output(n,V,I,S,SL)"]
-        I --> J[End]
+        A[Start]:::bigFontSize
+        A --> B["DISPLAY Enter the number of buses"]:::bigFontSize
+        B --> C[INPUT n]:::bigFontSize
+        C --> D["INITIALISE matrices V, I, y with dimensions (n, n)"]:::bigFontSize
+        D --> E["DISPLAY Enter 1 for impedance and 2 for admittance"]:::bigFontSize
+        E --> F[INPUT choice]:::bigFontSize
+        F --> G["CALL get_input(n,V,I,y) and store the result into V,I,y"]:::bigFontSize
+        G --> H["CALL calculate_line_flow_loss(n,V,I,y) and store the result into S and SL"]:::bigFontSize
+        H --> I["CALL display_output(n,V,I,S,SL)"]:::bigFontSize
+        I --> J[End]:::bigFontSize
     end
 </pre>
 
