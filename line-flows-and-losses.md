@@ -142,8 +142,10 @@ graph LR
         QQQ --> RRR[End FOR]@{shape: hex}
         RRR --> NNN
         RRR --> SSS[["DECLARE 
-        headers = ['Bus Pair', 'Voltage', 
-        'Current', 'Line Flow', 
+        headers = ['Bus Pair', 
+        'Voltage', 
+        'Current', 
+        'Line Flow', 
         'Line Loss']"]]
         SSS --> TTT[FOR i in headers]@{shape: hex}
         TTT --> UUU[DISPLAY i, end with space]@{shape: lean-left}
