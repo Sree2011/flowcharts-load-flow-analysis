@@ -132,14 +132,19 @@ graph LR
         MMM --> NNN[FOR i from 0 to n-1]@{shape: hex}
         NNN --> OOO[FOR j from 0 to n-1]@{shape: hex}
         OOO --> PPP[["ADD 
-        'Bus Pair (i+1)-(j+1), Voltage V[i, j], 
-        Current I[i, j], Line Flow S[i, j], 
+        'Bus Pair (i+1)-(j+1), 
+        Voltage V[i, j], 
+        Current I[i, j], 
+        Line Flow S[i, j], 
         Line Loss SL[i, j]' TO data"]]
         PPP --> QQQ[End FOR]@{shape: hex}
         QQQ --> OOO
         QQQ --> RRR[End FOR]@{shape: hex}
         RRR --> NNN
-        RRR --> SSS[["DECLARE headers = ['Bus Pair', 'Voltage', 'Current', 'Line Flow', 'Line Loss']"]]
+        RRR --> SSS[["DECLARE 
+        headers = ['Bus Pair', 'Voltage', 
+        'Current', 'Line Flow', 
+        'Line Loss']"]]
         SSS --> TTT[FOR i in headers]@{shape: hex}
         TTT --> UUU[DISPLAY i, end with space]@{shape: lean-left}
         UUU --> VVV[End FOR]@{shape: hex}
