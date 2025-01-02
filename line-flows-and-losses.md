@@ -21,13 +21,15 @@ graph LR
         O --> P["INPUT I[i, i]"]@{shape: lean-right}
         P --> Q[End FOR]@{shape: hex}
         Q --> L
-        Q --> R["DISPLAY Enter 1 for impedance 
+        Q --> R["DISPLAY 
+        Enter 1 for impedance 
         and 2 for admittance"]@{shape: lean-left}
         R --> S[INPUT choice]@{shape: lean-right}
         S --> S1[Choice]@{shape: diam}
         S1 --> |1| T[FOR i from 0 to n-1]@{shape: hex}
         T --> U[FOR j from 0 to n-1]@{shape: hex}
-        U --> V["DISPLAY enter the impedance between bus (i+1) and (j+1)"]@{shape: lean-left}
+        U --> V["DISPLAY enter the impedance 
+        between bus (i+1) and (j+1)"]@{shape: lean-left}
         V --> W[INPUT yij]@{shape: lean-right}
         W --> X[["y[i, j] = 1 / yij"]]
         X --> Y[End FOR]@{shape: hex}
