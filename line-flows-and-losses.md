@@ -59,13 +59,19 @@ graph LR
     subgraph "Main Program"
         direction TB
         A([Start])
-        A --> B["DISPLAY Enter the number of buses"]@{shape: lean-left}
+        A --> B["DISPLAY 
+        Enter the number of buses"]@{shape: lean-left}
         B --> C[INPUT n]@{shape: lean-right}
-        C --> D[["INITIALISE matrices V, I, y with dimensions (n, n)"]]
-        D --> E["DISPLAY Enter 1 for impedance and 2 for admittance"]@{shape: lean-left}
+        C --> D[["INITIALISE matrices V, I, y 
+        with dimensions (n, n)"]]
+        D --> E["DISPLAY 
+        Enter 1 for impedance 
+        and 2 for admittance"]@{shape: lean-left}
         E --> F[INPUT choice]@{shape: lean-right}
-        F --> G[["CALL get_input(n,V,I,y) and store the result into V,I,y"]]
-        G --> H[["CALL calculate_line_flow_loss(n,V,I,y) and store the result into S and SL"]]
+        F --> G[["CALL get_input(n,V,I,y) and 
+        store the result into V,I,y"]]
+        G --> H[["CALL calculate_line_flow_loss(n,V,I,y) and 
+        store the result into S and SL"]]
         H --> I[["CALL display_output(n,V,I,S,SL)"]]
         I --> J([End])
     end
