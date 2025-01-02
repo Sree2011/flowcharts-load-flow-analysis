@@ -70,9 +70,11 @@ graph LR
         E --> F[INPUT choice]@{shape: lean-right}
         F --> G[["CALL get_input(n,V,I,y) and 
         store the result into V,I,y"]]
-        G --> H[["CALL calculate_line_flow_loss(n,V,I,y) and 
-        store the result into S and SL"]]
-        H --> I[["CALL display_output(n,V,I,S,SL)"]]
+        G --> H[["CALL calculate_line_flow_
+        loss(n,V,I,y) and store the result 
+        into S and SL"]]
+        H --> I[["CALL 
+        display_output(n,V,I,S,SL)"]]
         I --> J([End])
     end
 </pre>
