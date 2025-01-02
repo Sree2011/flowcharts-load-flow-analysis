@@ -71,8 +71,8 @@ graph LR
         F --> G[["CALL get_input(n,V,I,y) and 
         store the result into V,I,y"]]
         G --> H[["CALL calculate_line_flow_
-        loss(n,V,I,y) and store the result 
-        into S and SL"]]
+        loss(n,V,I,y) and store the 
+        result into S and SL"]]
         H --> I[["CALL 
         display_output(n,V,I,S,SL)"]]
         I --> J([End])
