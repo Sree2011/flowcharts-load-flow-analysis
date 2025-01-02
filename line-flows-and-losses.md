@@ -9,11 +9,8 @@
 # Line flows and losses
 <pre class="mermaid">
 graph LR
-    classDef bigFontSize fill:#f9f,stroke:#333,stroke-width:10px,font-size:100px;
-    
-    
     subgraph "Get Input"
-        direction LR
+        direction TB
         K[Start]:::bigFontSize
         K --> L[FOR i from 0 to n-1]:::bigFontSize
         L --> M["DISPLAY enter the voltage at bus (i+1)"]:::bigFontSize
@@ -41,9 +38,12 @@ graph LR
         HH --> II[RETURN V,I,y]:::bigFontSize
         II --> JJ[End]:::bigFontSize
     end
+</pre>
 
+<pre class="mermaid">
+graph LR
     subgraph "Main Program"
-        direction LR
+        direction TB
         A[Start]:::bigFontSize
         A --> B["DISPLAY Enter the number of buses"]:::bigFontSize
         B --> C[INPUT n]:::bigFontSize
@@ -60,7 +60,7 @@ graph LR
 <pre class="mermaid">
 graph LR
     subgraph Display Line Flows and Line Losses
-        direction LR
+        direction TB
         LLL[Start]
         LLL --> MMM[CREATE LIST data]
         MMM --> NNN[FOR i from 0 to n-1]
@@ -78,8 +78,12 @@ graph LR
         YYY --> ZZZ[End FOR]
         ZZZ --> AAAA[End]
     end
+</pre>
+
+<pre class="mermaid">
+graph LR
     subgraph Calculate Line Flows and Line Losses
-        direction LR
+        direction TB
         KK[Start]
         KK --> LL["INITIALISE MATRICES S,SL with dimensions (n,n)"]
         LL --> MM[FOR i from 0 to n-1]
@@ -108,5 +112,27 @@ graph LR
         III --> JJJ[RETURN S,SL]
         JJJ --> KKK[End]
     end
+</pre>
 
+<pre class="mermaid">
+graph LR
+    subgraph Display Line Flows and Line Losses
+        direction TB
+        LLL[Start]
+        LLL --> MMM[CREATE LIST data]
+        MMM --> NNN[FOR i from 0 to n-1]
+        NNN --> OOO[FOR j from 0 to n-1]
+        OOO --> PPP["ADD Bus Pair (i+1)-(j+1), Voltage V[i, j], Current I[i, j], Line Flow S[i, j], Line Loss SL[i, j] TO data"]
+        PPP --> QQQ[End FOR]
+        QQQ --> RRR[End FOR]
+        RRR --> SSS["DECLARE headers = ['Bus Pair', 'Voltage', 'Current', 'Line Flow', 'Line Loss']"]
+        SSS --> TTT[FOR i in headers]
+        TTT --> UUU[DISPLAY i, end with space]
+        UUU --> VVV[End FOR]
+        VVV --> WWW[DISPLAY newline]
+        WWW --> XXX[FOR i in data]
+        XXX --> YYY[DISPLAY i]
+        YYY --> ZZZ[End FOR]
+        ZZZ --> AAAA[End]
+    end
 </pre>
