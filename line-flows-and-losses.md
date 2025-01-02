@@ -131,7 +131,10 @@ graph LR
         LLL --> MMM[[CREATE LIST data]]
         MMM --> NNN[FOR i from 0 to n-1]@{shape: hex}
         NNN --> OOO[FOR j from 0 to n-1]@{shape: hex}
-        OOO --> PPP[["ADD Bus Pair (i+1)-(j+1), Voltage V[i, j], Current I[i, j], Line Flow S[i, j], Line Loss SL[i, j] TO data"]]
+        OOO --> PPP[["ADD 
+        'Bus Pair (i+1)-(j+1), Voltage V[i, j], 
+        Current I[i, j], Line Flow S[i, j], 
+        Line Loss SL[i, j]' TO data"]]
         PPP --> QQQ[End FOR]@{shape: hex}
         QQQ --> OOO
         QQQ --> RRR[End FOR]@{shape: hex}
