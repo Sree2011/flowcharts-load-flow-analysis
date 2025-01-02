@@ -9,7 +9,8 @@
 # Line flows and losses
 <pre class="mermaid">
 graph LR
-    classDef bigFontSize fill:#f9f,stroke:#333,stroke-width:4px,font-size:20px;
+    classDef bigFontSize fill:#f9f,stroke:#333,stroke-width:10px,font-size:100px;
+    
     
     subgraph "Get Input"
         direction LR
